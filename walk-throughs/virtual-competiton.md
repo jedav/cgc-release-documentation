@@ -16,7 +16,7 @@ in understanding why the role is included as part of Virtual Competition:
 * **ti** - this is the Team Interface.  The role represents the interface that will be provided to a CRS by the CFE infrastructure.
 * **cb** - this is the Challenge Binary server.  This is the host where CBs are executed.
 * **pov** - this is the POV server.  This role has the responsibility of 'throwing' POVs (and polls) at the cb server.
-* **crs** - this is a host for simulating a CRS.  While no, simulated CRS capabilities are distributed as part of Virtual Competition, a sample client is provided to exercise the Team Interface.
+* **crs** - this is a host for simulating a CRS.  While no simulated CRS capabilities are distributed as part of Virtual Competition, a sample client is provided to exercise the Team Interface.
 * **ids** - this is the IDS host; the network appliance.  Filters fielded by a CRS will be installed on ids.  From a network perspective, ids is in between pov and cb.
 
 
@@ -121,19 +121,19 @@ observe current round, scoreboard and teams:
     ti-client> teams
     1, 2, 3, 4, 5, 6, 7
 
-retreive feedback on CBs:
+retrieve feedback on CBs:
     
     ti-client> feedback cb
     1435856617 LUNGE_00002 - signal: 11
     1435856617 LUNGE_00002 - signal: 11
     1435856617 LUNGE_00002 - signal: 4
 
-retreive LUNGE_00002 IDS rules for team 1 from round 0 fof consensus evaluation:
+retrieve LUNGE_00002 IDS rules for team 1 from round 0 fof consensus evaluation:
 
     ti-client> consensus LUNGE_00002 ids 1 0 /tmp
     downloaded: /tmp/LUNGE_00002-1-0.ids
 
-retreive LUNGE_00002 CB for team 3 from round 1 for consensus evaluation:
+retrieve LUNGE_00002 CB for team 3 from round 1 for consensus evaluation:
    
     ti-client> consensus LUNGE_00002 cb 3 1 /tmp
     downloaded: /tmp/LUNGE_00002-3-1.cb
@@ -193,7 +193,7 @@ Additionally, the POV can be tested with the IDS role.  That is, a POV may be th
     # polls passed: 1
     # polls failed: 0
 
-In addition the interfaces provided on **ti* (exercised in this document with `ti-client`), the network appliance is capable of emitting best-effort network trace information similar to a network tap.  This information is emitted from `cb-proxy` and can be consumed with an example application `cb-packet-log`.  
+In addition to the interfaces provided on **ti* (exercised in this document with `ti-client`), the network appliance is capable of emitting best-effort network trace information similar to a network tap.  This information is emitted from `cb-proxy` and can be consumed with an example application `cb-packet-log`.  
 
 To capture the network appliance UDP packets as part of `cb-test` utilize the --pcap option in conjunction with --enable_remote:
 
