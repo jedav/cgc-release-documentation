@@ -140,7 +140,7 @@ retreive LUNGE_00002 CB for team 3 from round 1 for consensus evaluation:
 
 submit IDS signatures to the network appliance:    
     
-    ti-client> upload_ids LUNGE_00002 /usr/share/ids/examples/LUNGE_00002.rules
+    ti-client> upload_ids LUNGE_00002 /usr/share/cgc-network-appliance/examples/LUNGE_00002.rules
     upload completed during round: 2    
     
 leave the interactive client:    
@@ -179,7 +179,7 @@ Virtual Competition facilitates similar testing across relevant CFE hosts, for e
 
 Additionally, the POV can be tested with the IDS role.  That is, a POV may be thrown from the **pov** host traversing the **ids** host to the **cb** host.  The previous example actually traversed the **ids** host as well, however, the **ids** had no rules to enforce on that CB.  In this case, we provide a rules file for the **ids** to enforce:
 
-    $ cb-test --cb LUNGE_00002 --directory bin --xml pov/POV_00000.xml --enable_remote --ids_rules /usr/share/ids/examples/LUNGE_00002.rules
+    $ cb-test --cb LUNGE_00002 --directory bin --xml pov/POV_00000.xml --enable_remote --ids_rules /usr/share/cgc-network-appliance/examples/LUNGE_00002.rules
 
     ...
     # cb-proxy: 2015-07-07 04:39:40,570 - INFO : blocking connection: filter matched...
@@ -187,7 +187,7 @@ Additionally, the POV can be tested with the IDS role.  That is, a POV may be th
     # polls passed: 0
     # polls failed: 1
 
-    $ cb-test --cb LUNGE_00002 --directory bin --xml poller/for-testing/GEN_00602.xml --enable_remote --ids_rules /usr/share/ids/examples/LUNGE_00002.rules
+    $ cb-test --cb LUNGE_00002 --directory bin --xml poller/for-testing/GEN_00602.xml --enable_remote --ids_rules /usr/share/cgc-network-appliance/examples/LUNGE_00002.rules
 
     ...
     # polls passed: 1
@@ -198,10 +198,10 @@ In addition the interfaces provided on **ti* (exercised in this document with `t
 To capture the network appliance UDP packets as part of `cb-test` utilize the --pcap option in conjunction with --enable_remote:
 
 
-    $ cb-test --cb LUNGE_00002 --directory bin --xml poller/for-testing/GEN_00602.xml --enable_remote --ids_rules /usr/share/ids/examples/LUNGE_00002.rules --pcap ~/LUNGE_00002_ids_tap.pcap
+    $ cb-test --cb LUNGE_00002 --directory bin --xml poller/for-testing/GEN_00602.xml --enable_remote --ids_rules /usr/share/cgc-network-appliance/examples/LUNGE_00002.rules --pcap ~/LUNGE_00002_ids_tap.pcap
 
 
-A sample Wireshark decoder for the UDP network trace format can be found in `/usr/share/ids/extra/cgc.lua`.
+A sample Wireshark decoder for the UDP network trace format can be found in `/usr/share/cgc-network-appliance/extra/cgc.lua`.
 
 More information about the IDS and the rules language can be found in the Using the Network Appliance walk-through (`using-the-network-appliance.md`), and the man pages for `cb-proxy` and `cb-packet-log`.
 
@@ -252,10 +252,10 @@ Test polls and POVs:
 
     crs$ cd /usr/share/cgc-sample-challenges/examples/LUNGE_00002/ && sudo make build generate-polls install
     ...
-    crs$ cb-test --cb LUNGE_00002 --directory bin --xml pov/POV_00000.xml --enable_remote --ids_rules /usr/share/ids/examples/LUNGE_00002.rules 
+    crs$ cb-test --cb LUNGE_00002 --directory bin --xml pov/POV_00000.xml --enable_remote --ids_rules /usr/share/cgc-network-appliance/examples/LUNGE_00002.rules 
     ...
 
-    crs$ cb-test --cb LUNGE_00002 --directory bin --xml poller/for-release/GEN_00335.xml --enable_remote --ids_rules /usr/share/ids/examples/LUNGE_00002.rules --pcap ~/LUNGE_00002_pol_gen_00335.pcap
+    crs$ cb-test --cb LUNGE_00002 --directory bin --xml poller/for-release/GEN_00335.xml --enable_remote --ids_rules /usr/share/cgc-network-appliance/examples/LUNGE_00002.rules --pcap ~/LUNGE_00002_pol_gen_00335.pcap
     
 ## Updating Virtual Competition
 
